@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "d41c95b6-9bcd-456f-ac51-9dce7d9de3ad",
+		"name": "School",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Teacher",
+			"item": [
+				{
+					"name": "addTeacher",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fName\": \"Rajitha\",\r\n    \"lName\": \"Fernando\",\r\n    \"age\": \"26\",\r\n    \"subject\": \"English\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/addTeacher",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"addTeacher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTeacher",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/getTeacher",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"getTeacher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateTeacher",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fName\": \"Nadeeshan\",\r\n    \"lName\": \"Fernando\",\r\n    \"age\": \"26\",\r\n    \"subject\": \"English\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/updateTeacher",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"updateTeacher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTeacher/4",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/deleteTeacher/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"deleteTeacher",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "addStudent",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fName\" : \"Shanthi\",\r\n    \"lName\" : \"Madushanki\",\r\n    \"age\": 16,\r\n    \"grade\" : 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/updateStudent",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"updateStudent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getStudent",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/getStudent",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"getStudent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateStudent/7",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fname\" : \"Madushanki\",\r\n    \"lname\" : \"Soyza\",\r\n    \"age\" : 16,\r\n    \"grade\" : 8 \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/updateStudent/7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"updateStudent",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteStudent/6",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/deleteStudent/6",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"deleteStudent",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

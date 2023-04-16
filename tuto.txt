@@ -1,0 +1,72 @@
+Create new project;
+Spring initializr
+        Project -> Maven
+        Language -> Java
+        Spring boot -> Default
+        Packaging -> War
+        Java -> 11
+        Dependencies -> Spring Web, JPA(Annotation), H2(Tables & Columns), MySQL Driver(Connect application & mysql)
+
+Open project in intellij;
+pom -> right click -> open with -> intellij
+
+SDK;
+File -> Project Structure -> Add SDK -> SDK -> Apply -> OK
+
+Check Java Version -> pom
+
+Check databases;
+src -> main -> resources -> application.property
+
+Model -> Repository -> Service -> Controller
+
+Create new package;
+src -> main -> java -> com.school.school ->  new -> package -> com.school.school.model
+
+
+Create new class;
+src -> main -> java -> com.school.school ->  model -> new -> java class
+
+
+Model class;
+@entity -> application knows the table is in this class
+@table -> create table
+@id -> primary key
+@generatedvalue - generation strategy of pk
+@column - create columns
+@Jsonignore -> ignore properties
+
+
+Model class - contains application data
+Repository interface - extends JpaRepository, manage data in the application
+Service class ->
+Controller class -> contains endpoints
+
+Run application for the first time
+main class -> right click -> run
+
+By ID -> @PathVariable
+Otherwise -> @RequestBody
+
+create war file;
+Maven tab -> school -> lifecycle -> ctrl+clean+install
+Save in target folder
+
+
+Maven dependencies installation location
+C:\Users\PiyumiN\.m2
+
+Add dependencies;
+Google dependency name -> select version -> copy code -> paste in pom within dependensies tabs -> load maven OR
+maven tab -> ctrl+clean+install OR rightclick -> maven -> reload project
+
+Application up from tomcat server;
+    Step 1 - folder -> target -> war -> copy -> tomcat -> webapps -> paste
+    Step 2 - tomcat -> bin -> cmd -> startup.bat -> enter
+
+Send postman request after up from server;
+http://localhost:<port_number>/<folder_name_inside_tomcat>/<request>
+
+in application.properties,
+if server.port = 0, it will take any of the available ports
+

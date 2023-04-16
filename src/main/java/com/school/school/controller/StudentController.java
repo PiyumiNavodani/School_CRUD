@@ -30,8 +30,8 @@ public class StudentController {
     }
 
     //Update Student
-    @PutMapping("/updateStudent")
-    public ResponseEntity<?> updateStudent(@RequestBody Student student){
+    @PutMapping("/updateStudent/{id}")
+    public ResponseEntity<?> updateStudent(@RequestBody Student student, @PathVariable Long id){
         Optional<Student> findStudent = Optional.ofNullable((Student) studentService.getStudent());
 
         if(findStudent.isPresent()){
@@ -39,8 +39,8 @@ public class StudentController {
             updateStudent.setFName(student.getFName());
             updateStudent.setLName(student.getLName());
             updateStudent.setAge(student.getAge());
-            updateStudent.setGrade(student.getAge());
-            return new ResponseEntity<>(studentService.updateStudent(updateStudent), HttpStatus.OK);
+            updateStudent.setGrade(student.getGrade());
+            return new ResponseEntity<>(studentService.updateStudentById(updateStudent), HttpStatus.OK);
         }else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

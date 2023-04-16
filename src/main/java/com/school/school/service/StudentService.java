@@ -26,7 +26,7 @@ public class StudentService {
     }
 
     //Update Student
-    public Student updateStudent(Student student){
+    public Student updateStudentById(Student student){
         return studentRepository.save(student);
     }
 
