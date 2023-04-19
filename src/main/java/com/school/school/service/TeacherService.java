@@ -18,9 +18,14 @@ public class TeacherService {
         return teacherRepository.save(teacher);
     }
 
-    //Read Teachers
+    //Get Teachers
     public List<Teacher> getTeacher(){
         return teacherRepository.findAll();
+    }
+
+    //Get Teachers by Id
+    public Teacher geTeacherByID(Long id){
+        return teacherRepository.findById(id).orElse(null);
     }
 
     //Update Teachers

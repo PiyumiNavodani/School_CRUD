@@ -20,13 +20,16 @@ public class StudentService {
         return studentRepository.save(student);
     }
 
-    //Read Student
+    //Get Student
     public List<Student> getStudent(){
         return studentRepository.findAll();
     }
 
+    //Get Student By Id
+    public Student getStudentById(Long id) { return studentRepository.findById(id).orElse(null);}
+
     //Update Student
-    public Student updateStudentById(Student student){
+    public Student updateStudent(Student student){
         return studentRepository.save(student);
     }
 

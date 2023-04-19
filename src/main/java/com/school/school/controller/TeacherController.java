@@ -1,5 +1,6 @@
 package com.school.school.controller;
 
+import com.school.school.model.Student;
 import com.school.school.model.Teacher;
 import com.school.school.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin("*")
+@RequestMapping("/teacher")
 public class TeacherController {
 
     @Autowired
@@ -22,21 +25,32 @@ public class TeacherController {
         return teacherService.createTeacher(teacher);
     }
 
-    //Read Teacher
+    //Get Teacher
     @GetMapping(path ="/getTeacher")
     public List<Teacher> getTeacher(){
         return teacherService.getTeacher();
     }
 
+    //Get Teacher by ID
+    @GetMapping(path = "/getTeacherById/{id}")
+    public ResponseEntity<Optional<Teacher>> getTeacherById(@PathVariable Long id){
+        Optional<Teacher> findTeacher =Optional.ofNullable(teacherService.geTeacherByID(id));
+        if(findTeacher.isPresent()){
+            return ResponseEntity.ok().body(findTeacher);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     //Update Teacher
     @PutMapping("/updateTeacher/{id}")
     public ResponseEntity<?> updateTeacher(@PathVariable Long id, @RequestBody Teacher teacher){
-        Optional<Teacher> findTeacher = Optional.ofNullable((Teacher) teacherService.getTeacher());
+        Optional<Teacher> findTeacher = Optional.ofNullable(teacherService.geTeacherByID(id));
 
         if(findTeacher.isPresent()){
             Teacher updateTeacher = findTeacher.get();
-            updateTeacher.setFName(teacher.getFName());
-            updateTeacher.setLName(teacher.getLName());
+            updateTeacher.setFirstName(teacher.getFirstName());
+            updateTeacher.setLastName(teacher.getLastName());
             updateTeacher.setAge(teacher.getAge());
             updateTeacher.setSubject(teacher.getSubject());
             return new ResponseEntity<>(teacherService.updateTeacherById(updateTeacher), HttpStatus.OK);

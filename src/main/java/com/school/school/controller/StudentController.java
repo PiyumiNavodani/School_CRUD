@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin("*")
+@RequestMapping("/student")
 public class StudentController {
     @Autowired
     StudentService studentService;
@@ -23,24 +25,35 @@ public class StudentController {
         return studentService.createStudent(student);
     }
 
-    //Read Student
+    //Get Student
     @GetMapping(path ="/getStudent")
     public List<Student> getStudent(){
         return studentService.getStudent();
     }
 
+    //Get Student By ID
+    @GetMapping(path = "/getStudentById/{id}")
+    public ResponseEntity<Optional<Student>> getStudentById(@PathVariable Long id){
+        Optional<Student> findStudent =Optional.ofNullable(studentService.getStudentById(id));
+        if(findStudent.isPresent()){
+            return ResponseEntity.ok().body(findStudent);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     //Update Student
     @PutMapping("/updateStudent/{id}")
     public ResponseEntity<?> updateStudent(@RequestBody Student student, @PathVariable Long id){
-        Optional<Student> findStudent = Optional.ofNullable((Student) studentService.getStudent());
+        Optional<Student> findStudent = Optional.ofNullable(studentService.getStudentById(id));
 
         if(findStudent.isPresent()){
             Student updateStudent = findStudent.get();
-            updateStudent.setFName(student.getFName());
-            updateStudent.setLName(student.getLName());
+            updateStudent.setFirstName(student.getFirstName());
+            updateStudent.setLastName(student.getLastName());
             updateStudent.setAge(student.getAge());
             updateStudent.setGrade(student.getGrade());
-            return new ResponseEntity<>(studentService.updateStudentById(updateStudent), HttpStatus.OK);
+            return new ResponseEntity<>(studentService.updateStudent(updateStudent), HttpStatus.OK);
         }else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

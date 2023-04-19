@@ -70,3 +70,8 @@ http://localhost:<port_number>/<folder_name_inside_tomcat>/<request>
 in application.properties,
 if server.port = 0, it will take any of the available ports
 
+@RequestMapping => Specifically identify the path.
+
+@CrossOrigin(CORS) => allow a server to indicate any origin when running on browser
+
+Email generating =>  https://www.geeksforgeeks.org/spring-boot-sending-email-via-smtp/

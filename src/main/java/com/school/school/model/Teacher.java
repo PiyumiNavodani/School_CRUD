@@ -18,11 +18,11 @@ public class Teacher {
     @Column(name = "id")
     public Long id;
 
-    @Column(name = "fName")
-    public String fName;
+    @Column(name = "firstName")
+    public String firstName;
 
-    @Column(name = "lName")
-    public String lName;
+    @Column(name = "lastName")
+    public String lastName;
 
     @Column(name = "age")
     public int age;
@@ -34,8 +34,8 @@ public class Teacher {
     public String toString() {
         return "Teacher{" +
                 "id=" + id +
-                ", fName='" + fName + '\'' +
-                ", lName='" + lName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", age=" + age +
                 ", subject='" + subject + '\'' +
                 '}';
